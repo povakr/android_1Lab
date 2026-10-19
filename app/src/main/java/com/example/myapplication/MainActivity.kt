@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -69,6 +71,7 @@ fun DashBoard() {
                 Column() {
                     Text(
                         text = "Алексей Иванов",
+                        fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
 
                     )
@@ -83,52 +86,37 @@ fun DashBoard() {
             .fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-
-            Card(modifier = Modifier
-                .height(50.dp)
-                .weight(1f)
-                .background(Color.White),
-                border = BorderStroke(1.dp, Color(0xFFD8DCE6))
-
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally
-                            )
-                        {
-                            Text(
-                                text = "24",
-                                fontWeight = FontWeight.Bold,
-
-                            )
-                            Text(
-                                text = "Projects",
-                                color = Color.Gray,
-
-                            )
-                             }
-                        }
-                 }
+            Column(
+                modifier = Modifier
+                    .border(width = 1.dp, Color(0xffe8eef7), shape = RoundedCornerShape(8.dp))
+                    .padding(8.dp)
+                    .weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally,
 
 
-            Card(modifier = Modifier
-                .height(50.dp)
-                .weight(1f)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
+                )
+            {
+                Text(
+                    text = "24",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+
+                )
+                Text(
+                    text = "Projects",
+                    color = Color.Gray,
+                )
+            }
+
+                    Column(modifier = Modifier
+                        .border(width = 1.dp, Color(0xffe8eef7), shape = RoundedCornerShape(8.dp))
+                        .padding(8.dp)
+                        .weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text(
                             text = "18",
+                            fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
 
                             )
@@ -138,23 +126,16 @@ fun DashBoard() {
 
                             )
                     }
-                }
-            }
 
-            Card(modifier = Modifier
-                .height(50.dp)
-                .weight(1f)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
+                    Column(modifier = Modifier
+                        .border(width = 1.dp, Color(0xffe8eef7), shape = RoundedCornerShape(8.dp))
+                        .padding(8.dp)
+                        .weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
                         Text(
                             text = "7",
+                            fontSize = 16.sp,
                             fontWeight = FontWeight.Bold,
 
                             )
@@ -163,9 +144,9 @@ fun DashBoard() {
                             color = Color.Gray,
 
                             )
+
                     }
-                }
-            }
+
         }
 
         Column(modifier = Modifier.fillMaxWidth()) {
@@ -182,10 +163,12 @@ fun DashBoard() {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Text(text = "Experience",
+                fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 )
             Card(modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                border = BorderStroke(1.dp, Color(0xffe8eef7))
                     ){
                 Column(modifier = Modifier
                     .padding(8.dp),
