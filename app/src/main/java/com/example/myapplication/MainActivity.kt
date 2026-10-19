@@ -5,6 +5,7 @@ import android.telephony.data.RouteSelectionDescriptor
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.ModifierLocalReadScope
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -49,10 +51,16 @@ fun DashBoard() {
     Column(
         modifier = Modifier
         .fillMaxWidth()
-            .padding(16.dp),
+        .padding(12.dp)
+        .padding(top = 4.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Row() {
+        Row(modifier = Modifier
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+
+        ) {
             Box( modifier = Modifier
                 .size(48.dp)
                 .clip(RoundedCornerShape(24.dp))
@@ -79,6 +87,9 @@ fun DashBoard() {
             Card(modifier = Modifier
                 .height(50.dp)
                 .weight(1f)
+                .background(Color.White),
+                border = BorderStroke(1.dp, Color(0xFFD8DCE6))
+
                 ) {
                     Box(
                         modifier = Modifier
@@ -87,7 +98,8 @@ fun DashBoard() {
                     ) {
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
+                            )
+                        {
                             Text(
                                 text = "24",
                                 fontWeight = FontWeight.Bold,
@@ -128,6 +140,7 @@ fun DashBoard() {
                     }
                 }
             }
+
             Card(modifier = Modifier
                 .height(50.dp)
                 .weight(1f)
@@ -155,7 +168,7 @@ fun DashBoard() {
             }
         }
 
-        Column() {
+        Column(modifier = Modifier.fillMaxWidth()) {
             Text(text = "About",
                 fontWeight = FontWeight.Bold,
                 )
@@ -164,14 +177,20 @@ fun DashBoard() {
             )
         }
 
-        Column() {
+        Column(modifier = Modifier
+            .fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
             Text(text = "Experience",
                 fontWeight = FontWeight.Bold,
                 )
             Card(modifier = Modifier
-                    .size(120.dp)
-                    .background(Color.Gray)){
-                Column() {
+                    .fillMaxWidth()
+                    ){
+                Column(modifier = Modifier
+                    .padding(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
                     Text(text = "Android Developer",
                         fontWeight = FontWeight.Bold,
                         )
